@@ -1,0 +1,10 @@
+{
+  "name": "tconnect-backend-lambda",
+  "version": "1.0.0",
+  "description": "AWS Lambda Backend for TConnect",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "aws-sdk": "^2.1051.0"
+  }
+}
