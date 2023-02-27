@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { TconnectBackendStack } from '../lib/stacks/tconnect-backend-stack';
+import { LambdaStack } from '../lib/stacks/tconnect-backend-stack';
 
 const app = new cdk.App();
-new TconnectBackendStack(app, 'TconnectBackendStack', {
+new LambdaStack(app, 'TconnectBackendStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
    * but a single synthesized template can be deployed anywhere. */
