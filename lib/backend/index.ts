@@ -1,13 +1,8 @@
-class Greeting {
-    message: string;
-    constructor(message: string) {
-        this.message = message;
-    }
+import { buildResponse } from "./utils/utils";
 
-    greet() {
-        return this.message;
-    }
-}
-
-
-export { Greeting };
+export const handler = async(event: any) => {
+    console.log('Request Event : ', event);
+    let response;
+    response = buildResponse(200, { message: 'Hello World'});
+    return response;
+};

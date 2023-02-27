@@ -1,10 +1,9 @@
-import { Greeting } from "../../lib/backend";
+import { handler } from "../../lib/backend";
+import { buildResponse } from "../../lib/backend/utils/utils";
 
-describe('Backend', () => {
-
-  it('should create proper greeting', () => {
-    const greeting = new Greeting('Hello, world!');
-    expect(greeting.greet()).toBe('Hello, world!');
+describe('Handler Invocation Test', () => {
+  it('should invoke the handler', async () => {
+    const result = await handler({"Event": "Test"});
+    expect(result).toStrictEqual(buildResponse(200, { message: 'Hello World'}));
   });
-  
 });
