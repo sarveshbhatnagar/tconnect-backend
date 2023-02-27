@@ -6,4 +6,5 @@ describe('Backend', () => {
     const greeting = new Greeting('Hello, world!');
     expect(greeting.greet()).toBe('Hello, world!');
   });
+  
 });

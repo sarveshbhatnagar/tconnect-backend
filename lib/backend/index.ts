@@ -1,12 +1,13 @@
 class Greeting {
-  constructor(public message: string) {
-    this.message = message;
-  }
+    message: string;
+    constructor(message: string) {
+        this.message = message;
+    }
 
-    greet() {   
+    greet() {
         return this.message;
     }
 }
 
 
-export {Greeting};
+export { Greeting };
