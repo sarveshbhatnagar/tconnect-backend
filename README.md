@@ -1,6 +1,16 @@
-# Welcome to your CDK TypeScript project
+# TConnect
+This project is for backend that we are implementing for TConnect. We aim to have a fully automated CI/CD for this.
 
-This is a blank project for CDK development with TypeScript.
+The basic structure is as follows:
+
+1. All the code resides in lib/
+2. lib/backend folder contains the backend logic and files with index.ts as the entry point.
+3. lib/stacks contains the cdk stack used for auto deployment and update for cdk stacks.
+
+Make sure to update internal package.json for any packaging requirements for the backend.
+
+
+## Typescript details
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
