@@ -2,7 +2,7 @@ import { PersonalDetailsBuilder } from '../../../lib/backend/info/personalDetail
 
 describe('PersonalDetails', () => {
     it('should build a PersonalDetails object', () => {
-        const personalDetails = new PersonalDetailsBuilder('kush')
+        const personalDetails = new PersonalDetailsBuilder('testUsername')
             .withFirstName('John')
             .withLastName('Doe')
             .withEmail('johndoe@abc.com')
@@ -12,6 +12,6 @@ describe('PersonalDetails', () => {
         expect (personalDetails.lastName).toBe('Doe');
         expect (personalDetails.email).toBe('johndoe@abc.com');
         expect (personalDetails.phone).toBe('1234567890');
-        expect (personalDetails.username).toBe('kush');
+        expect (personalDetails.username).toBe('testUsername');
     });
 });
