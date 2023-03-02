@@ -1,8 +1,8 @@
 class PersonalDetails {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
+    firstName: string|undefined;
+    lastName: string|undefined;
+    email: string|undefined;
+    phone: string|undefined;
     username: string;
 
     constructor(firstName: string, lastName: string, email: string, phone: string, username: string) {
@@ -21,7 +21,7 @@ class PersonalDetailsBuilder{
     phone: string;
     username: string;
 
-    constructor() {
+    constructor(username: string) {
         return this;
     }
 
@@ -45,10 +45,6 @@ class PersonalDetailsBuilder{
         return this;
     }
 
-    withUsername(username: string) {
-        this.username = username;
-        return this;
-    }
 
     build() {
         return new PersonalDetails(this.firstName, this.lastName, this.email, this.phone, this.username);
