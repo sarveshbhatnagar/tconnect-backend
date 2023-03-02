@@ -5,7 +5,7 @@ class PersonalDetails {
     phone: string|undefined;
     username: string;
 
-    constructor(firstName: string, lastName: string, email: string, phone: string, username: string) {
+    constructor(firstName: string|undefined, lastName: string|undefined, email: string|undefined, phone: string|undefined, username: string) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -15,10 +15,10 @@ class PersonalDetails {
 }
 
 class PersonalDetailsBuilder{
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
+    firstName: string | undefined;
+    lastName: string | undefined;
+    email: string | undefined;
+    phone: string | undefined;
     username: string;
 
     constructor(username: string) {
@@ -26,22 +26,22 @@ class PersonalDetailsBuilder{
         return this;
     }
 
-    withEmail(email: string) {
+    withEmail(email: string | undefined) {
         this.email = email;
         return this;
     }
     
-    withFirstName(firstName: string) {
+    withFirstName(firstName: string | undefined) {
         this.firstName = firstName;
         return this;
     }
 
-    withLastName(lastName: string) {
+    withLastName(lastName: string | undefined) {
         this.lastName = lastName;
         return this;
     }
 
-    withPhone(phone: string) {
+    withPhone(phone: string | undefined) {
         this.phone = phone;
         return this;
     }
@@ -50,6 +50,15 @@ class PersonalDetailsBuilder{
 
     build() {
         return new PersonalDetails(this.firstName, this.lastName, this.email, this.phone, this.username);
+    }
+
+    static from(obj: {firstName?: string, lastName?: string, email?: string, phone?: string, username: string}) {
+        return new PersonalDetailsBuilder(obj.username)
+            .withFirstName(obj.firstName)
+            .withLastName(obj.lastName)
+            .withEmail(obj.email)
+            .withPhone(obj.phone)
+            .build();
     }
 }
 
