@@ -22,6 +22,7 @@ class PersonalDetailsBuilder{
     username: string;
 
     constructor(username: string) {
+        this.username = username;
         return this;
     }
 
@@ -44,6 +45,7 @@ class PersonalDetailsBuilder{
         this.phone = phone;
         return this;
     }
+
 
 
     build() {
