@@ -9,6 +9,7 @@ The basic structure is as follows:
 
 Make sure to update internal package.json for any packaging requirements for the backend.
 
+Read discussions.
 
 ## Typescript details
 

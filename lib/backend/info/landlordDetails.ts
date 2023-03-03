@@ -7,10 +7,7 @@ class LandlordDetils {
         this.tenants = tenants;
         this.photo = photo;
         this.numberOfTenants = numberOfTenants;
-
     }
-
-
 }
 
 class LandlordDetilsBuilder{
@@ -19,6 +16,9 @@ class LandlordDetilsBuilder{
     numberOfTenants: number;
 
     constructor(){
+        this.tenants = [];
+        this.photo = "";
+        this.numberOfTenants = 0;
         return this;
     }
 
@@ -39,6 +39,14 @@ class LandlordDetilsBuilder{
 
     build() {
         return new LandlordDetils(this.tenants, this.photo, this.numberOfTenants);
+    }
+
+    static from(obj: {tenants?: string[], photo?: string, numberOfTenants?: number}) {
+        const landlordDetailsBuilder = new LandlordDetilsBuilder();
+        obj.tenants && landlordDetailsBuilder.withTenants(obj.tenants);
+        obj.photo && landlordDetailsBuilder.withPhoto(obj.photo);
+        obj.numberOfTenants && landlordDetailsBuilder.withNumberOfTenants(obj.numberOfTenants);
+        return landlordDetailsBuilder.build();
     }
 }
 
