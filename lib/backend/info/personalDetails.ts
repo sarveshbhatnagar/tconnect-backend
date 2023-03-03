@@ -1,11 +1,11 @@
 class PersonalDetails {
-    firstName: string|undefined;
-    lastName: string|undefined;
-    email: string|undefined;
-    phone: string|undefined;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phone?: string;
     username: string;
 
-    constructor(firstName: string|undefined, lastName: string|undefined, email: string|undefined, phone: string|undefined, username: string) {
+    constructor(username: string, firstName?: string, lastName?: string|undefined, email?: string|undefined, phone?: string) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -15,10 +15,10 @@ class PersonalDetails {
 }
 
 class PersonalDetailsBuilder{
-    firstName: string | undefined;
-    lastName: string | undefined;
-    email: string | undefined;
-    phone: string | undefined;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phone?: string;
     username: string;
 
     constructor(username: string) {
@@ -26,22 +26,22 @@ class PersonalDetailsBuilder{
         return this;
     }
 
-    withEmail(email: string | undefined) {
+    withEmail(email?: string) {
         this.email = email;
         return this;
     }
     
-    withFirstName(firstName: string | undefined) {
+    withFirstName(firstName?: string) {
         this.firstName = firstName;
         return this;
     }
 
-    withLastName(lastName: string | undefined) {
+    withLastName(lastName?: string) {
         this.lastName = lastName;
         return this;
     }
 
-    withPhone(phone: string | undefined) {
+    withPhone(phone?: string) {
         this.phone = phone;
         return this;
     }
@@ -49,7 +49,7 @@ class PersonalDetailsBuilder{
 
 
     build() {
-        return new PersonalDetails(this.firstName, this.lastName, this.email, this.phone, this.username);
+        return new PersonalDetails(this.username, this.firstName, this.lastName, this.email, this.phone);
     }
 
     static from(obj: {firstName?: string, lastName?: string, email?: string, phone?: string, username: string}) {
