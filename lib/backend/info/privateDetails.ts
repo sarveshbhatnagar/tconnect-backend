@@ -10,6 +10,7 @@ class PrivateDetailsBuilder{
     password: string;
 
     constructor() {
+        this.password = "";
         return this;
     }
 
@@ -20,6 +21,12 @@ class PrivateDetailsBuilder{
 
     build() {
         return new PrivateDetails(this.password);
+    }
+
+    static from(obj: {password?: string}) {
+        const passwordDetails = new PrivateDetailsBuilder();
+        obj.password && passwordDetails.withPassword(obj.password);
+        return passwordDetails.build();
     }
 }
 
