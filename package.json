@@ -9,7 +9,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "package": "cd dist && zip -r ../dist/main.zip *"
+    "package": "cd dist && zip -r ../dist/main.zip *" 
   },
   "devDependencies": {
     "@aws-cdk/assert": "^2.66.1",

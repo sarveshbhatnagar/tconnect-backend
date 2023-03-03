@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - alpha
 
 jobs:
   deploy:
@@ -32,11 +33,11 @@ jobs:
       - name: Build Lambda function
         run: npm run build
 
-      - name: Create deployment package
-        run: |
-          cd dist
-          zip -r ../main.zip *
-          cd ..
+      - name: Package Lambda function
+        run: npm run package
+      
+      - name: List files
+        run: ls dist
 
       - name: Deploy AWS CDK stack
         run: cdk deploy
