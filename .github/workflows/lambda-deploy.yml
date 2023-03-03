@@ -33,6 +33,12 @@ jobs:
       - name: Build Lambda function
         run: npm run build
 
+      - name: Package Lambda function
+        run: npm run package
+      
+      - name: List files
+        run: ls dist
+
       - name: Deploy AWS CDK stack
         run: cdk deploy
 
