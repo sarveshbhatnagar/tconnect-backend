@@ -1,0 +1,39 @@
+name: Deploy AWS CDK stack and Lambda function
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  AWS_REGION: us-west-2
+  CDK_DEFAULT_ACCOUNT: ${{ secrets.AWS_ACCOUNT_ID_PROD }}
+  CDK_DEFAULT_REGION: ${{ env.AWS_REGION }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Lambda function
+        run: npm run build
+
+      - name: Deploy AWS CDK stack
+        run: cdk deploy
+
+      - name: Update Lambda function
+        run: |
+          FUNCTION_NAME=$(aws cloudformation describe-stack-resource --stack-name LambdaStack --logical-resource-id BackendLambdaFunction --query 'StackResourceDetail.PhysicalResourceId' --output text)
+          aws lambda update-function-code --function-name $FUNCTION_NAME --zip-file fileb://dist/main.zip
