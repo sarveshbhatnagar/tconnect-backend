@@ -11,7 +11,7 @@ jobs:
     env:
       AWS_REGION: us-west-2
       CDK_DEFAULT_ACCOUNT: ${{ secrets.AWS_ACCOUNT_ID_PROD }}
-      CDK_DEFAULT_REGION: ${{ env.AWS_REGION }}
+      CDK_DEFAULT_REGION: us-west-2
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
