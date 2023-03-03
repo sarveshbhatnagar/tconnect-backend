@@ -5,14 +5,13 @@ on:
     branches:
       - main
 
-env:
-  AWS_REGION: us-west-2
-  CDK_DEFAULT_ACCOUNT: ${{ secrets.AWS_ACCOUNT_ID_PROD }}
-  CDK_DEFAULT_REGION: ${{ env.AWS_REGION }}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      AWS_REGION: us-west-2
+      CDK_DEFAULT_ACCOUNT: ${{ secrets.AWS_ACCOUNT_ID_PROD }}
+      CDK_DEFAULT_REGION: ${{ env.AWS_REGION }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
