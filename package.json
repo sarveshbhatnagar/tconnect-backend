@@ -8,7 +8,8 @@
     "build": "tsc --outDir dist",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "package": "cd dist && zip -r ../main.zip *"
   },
   "devDependencies": {
     "@aws-cdk/assert": "^2.66.1",

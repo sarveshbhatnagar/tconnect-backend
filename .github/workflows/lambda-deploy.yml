@@ -32,6 +32,11 @@ jobs:
       - name: Build Lambda function
         run: npm run build
 
+      - name: Create deployment package
+        run: |
+          cd dist
+          zip -r ../main.zip *
+
       - name: Deploy AWS CDK stack
         run: cdk deploy
 
