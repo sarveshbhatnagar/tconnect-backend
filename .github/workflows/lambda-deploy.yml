@@ -36,6 +36,7 @@ jobs:
         run: |
           cd dist
           zip -r ../main.zip *
+          cd ..
 
       - name: Deploy AWS CDK stack
         run: cdk deploy
