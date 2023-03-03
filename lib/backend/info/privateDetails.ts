@@ -1,8 +1,13 @@
 class PrivateDetails{
-    password: string;
+    private password: string;
 
     constructor(password: string) {
         this.password = password;
+    }
+
+    verifyPassword(inputPassword: string) {
+        // TODO: implement password verification, for now just check equality.
+        return this.password == inputPassword;
     }
 }
 
