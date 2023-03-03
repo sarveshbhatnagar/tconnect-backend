@@ -29,6 +29,7 @@ class RentorDetialsBuilder{
     rentorScore: number;
 
     constructor(){
+        this.rentorScore = 0;
         return this;
     }
 
@@ -70,6 +71,18 @@ class RentorDetialsBuilder{
 
     build() {
         return new RentorDetials(this.leaseDate, this.monthlyCost, this.dueDate, this.missedPayments, this.rentedSince, this.rentedTill, this.rentorScore);
+    }
+
+    static from(obj: {leaseDate: string, monthlyCost: number, dueDate: string, missedPayments: number, rentedSince: string, rentedTill: string, rentorScore?: number}) {
+        const rentorDetailsBuilder = new RentorDetialsBuilder().withLeaseDate(obj.leaseDate)
+                                        .withMonthlyCost(obj.monthlyCost)
+                                        .withDueDate(obj.dueDate)
+                                        .withMissedPayments(obj.missedPayments)
+                                        .withRentedSince(obj.rentedSince)
+                                        .withRentedTill(obj.rentedTill);
+
+        obj.rentorScore && rentorDetailsBuilder.withRentorScore(obj.rentorScore);
+        return rentorDetailsBuilder.build();
     }
 }
 
