@@ -37,5 +37,5 @@ jobs:
 
       - name: Update Lambda function
         run: |
-          FUNCTION_NAME=$(aws cloudformation describe-stack-resource --stack-name TconnectBackendStack --logical-resource-id BackendLambdaFunction --query 'StackResourceDetail.PhysicalResourceId' --output text)
+          FUNCTION_NAME=$(aws cloudformation describe-stack-resource --stack-name TconnectBackendStack --logical-resource-id BackendLambdaFunction15282C80 --query 'StackResourceDetail.PhysicalResourceId' --output text)
           aws lambda update-function-code --function-name $FUNCTION_NAME --zip-file fileb://dist/main.zip
