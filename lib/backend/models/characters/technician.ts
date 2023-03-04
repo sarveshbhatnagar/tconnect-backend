@@ -1,4 +1,4 @@
-import { Character } from "../../schemas/Character";
+import { Character } from "../../schemas/character";
 
 // TODO - add TechnicianDetails after implmentation is done.
 class Technician extends Character {

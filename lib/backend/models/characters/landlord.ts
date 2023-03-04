@@ -1,5 +1,5 @@
 import { LandlordDetils, LandlordDetilsBuilder } from "../../info/landlordDetails";
-import { Character } from "../../schemas/Character";
+import { Character } from "../../schemas/character";
 
 class Landlord extends Character {
     landlordDetails: LandlordDetils;

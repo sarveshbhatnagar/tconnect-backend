@@ -11,7 +11,8 @@ describe( "PrivateDetails", () => {
 
 describe( "PrivateDetailsBuilder : from", () => {
     it("should work with empty constructor", () => {
-        const privateDetails = PrivateDetailsBuilder.from({});
+        const someObject = {};
+        const privateDetails = PrivateDetailsBuilder.from(someObject);
         expect(privateDetails.verifyPassword("")).toBe(true);
     });
 

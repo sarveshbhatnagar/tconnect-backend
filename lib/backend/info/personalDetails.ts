@@ -1,11 +1,11 @@
 class PersonalDetails {
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    phone?: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
     username: string;
 
-    constructor(username: string, firstName?: string, lastName?: string|undefined, email?: string|undefined, phone?: string) {
+    constructor(username: string, firstName: string, lastName: string, email: string, phone: string) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -15,33 +15,40 @@ class PersonalDetails {
 }
 
 class PersonalDetailsBuilder{
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    phone?: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
     username: string;
 
     constructor(username: string) {
+        if(username === undefined || username === null || username === ""){
+            throw new Error("Username seems to be empty during the request");
+        }
         this.username = username;
+        this.firstName = "";
+        this.lastName = "";
+        this.email = "";
+        this.phone = "";
         return this;
     }
 
-    withEmail(email?: string) {
+    withEmail(email: string = "") {
         this.email = email;
         return this;
     }
     
-    withFirstName(firstName?: string) {
+    withFirstName(firstName: string = "") {
         this.firstName = firstName;
         return this;
     }
 
-    withLastName(lastName?: string) {
+    withLastName(lastName: string= "") {
         this.lastName = lastName;
         return this;
     }
 
-    withPhone(phone?: string) {
+    withPhone(phone: string= "") {
         this.phone = phone;
         return this;
     }
@@ -54,11 +61,11 @@ class PersonalDetailsBuilder{
 
     static from(obj: {firstName?: string, lastName?: string, email?: string, phone?: string, username: string}) {
         return new PersonalDetailsBuilder(obj.username)
-            .withFirstName(obj.firstName)
-            .withLastName(obj.lastName)
-            .withEmail(obj.email)
-            .withPhone(obj.phone)
-            .build();
+                    .withFirstName(obj.firstName)
+                    .withLastName(obj.lastName)
+                    .withEmail(obj.email)
+                    .withPhone(obj.phone)
+                    .build();
     }
 }
 

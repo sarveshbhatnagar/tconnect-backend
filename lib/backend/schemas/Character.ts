@@ -12,6 +12,9 @@ class Character implements ICharacter {
     privateDetails: PrivateDetails;
 
     constructor(object: any) {
+        if (!object) {
+            throw new Error("Invalid object");
+        }
         this.personalDetails = PersonalDetailsBuilder.from(object);
         this.privateDetails = PrivateDetailsBuilder.from(object);
     }

@@ -1,5 +1,5 @@
 import { RentorDetials, RentorDetialsBuilder } from "../../info/rentorDetails";
-import { Character } from "../../schemas/Character";
+import { Character } from "../../schemas/character";
 
 class Rentor extends Character {
     rentorDetails: RentorDetials;
