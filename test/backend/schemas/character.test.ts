@@ -1,6 +1,6 @@
 import { PersonalDetailsBuilder } from "../../../lib/backend/info/personalDetails";
 import { PrivateDetailsBuilder } from "../../../lib/backend/info/privateDetails";
-import { Character } from "../../../lib/backend/schemas/Character";
+import { Character } from "../../../lib/backend/schemas/character";
 
 describe("Character", () => {
     it("should create an instance of Character with valid personal and private details", () => {
