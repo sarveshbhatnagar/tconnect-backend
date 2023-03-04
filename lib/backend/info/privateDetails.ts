@@ -14,12 +14,7 @@ class PrivateDetails{
 class PrivateDetailsBuilder{
     password: string;
 
-    constructor() {
-        this.password = "";
-        return this;
-    }
-
-    withPassword(password: string) {
+    withPassword(password: string= "") {
         this.password = password;
         return this;
     }
@@ -29,9 +24,9 @@ class PrivateDetailsBuilder{
     }
 
     static from(obj: {password?: string}) {
-        const passwordDetails = new PrivateDetailsBuilder();
-        obj.password && passwordDetails.withPassword(obj.password);
-        return passwordDetails.build();
+        return new PrivateDetailsBuilder()
+                            .withPassword(obj.password)
+                            .build();
     }
 }
 

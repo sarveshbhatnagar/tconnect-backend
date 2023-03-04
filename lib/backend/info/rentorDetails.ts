@@ -29,41 +29,48 @@ class RentorDetialsBuilder{
     rentorScore: number;
 
     constructor(){
+        // Even when withXyz is not called, object will have default values.
         this.rentorScore = 0;
+        this.leaseDate = "";
+        this.monthlyCost = 0;
+        this.dueDate = "";
+        this.missedPayments = 0;
+        this.rentedSince = "";
+        this.rentedTill = "";
         return this;
     }
 
-    withLeaseDate(leaseDate: string){
+    withLeaseDate(leaseDate: string = ""){
         this.leaseDate = leaseDate;
         return this;
     }
 
-    withMonthlyCost(monthlyCost: number){
+    withMonthlyCost(monthlyCost: number = 0){
         this.monthlyCost = monthlyCost;
         return this;
     }
 
-    withDueDate( dueDate: string){
+    withDueDate( dueDate: string = ""){
         this.dueDate = dueDate
         return this;
     }
 
-    withMissedPayments( missedPayments: number){
+    withMissedPayments( missedPayments: number = 0){
         this.missedPayments = missedPayments;
         return this;
     }
 
-    withRentedSince( rentedSince: string){
+    withRentedSince( rentedSince: string = ""){
         this.rentedSince = rentedSince;
         return this;
     }
 
-    withRentedTill( rentedTill: string){
+    withRentedTill( rentedTill: string = ""){
         this.rentedTill = rentedTill;
         return this;
     }
 
-    withRentorScore( rentorScore: number){
+    withRentorScore( rentorScore: number = 0){
         this.rentorScore = rentorScore;
         return this;
     }

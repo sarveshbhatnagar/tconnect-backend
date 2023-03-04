@@ -16,23 +16,24 @@ class LandlordDetilsBuilder{
     numberOfTenants: number;
 
     constructor(){
+        // Even when withXyz is not called, object will have default values.
         this.tenants = [];
         this.photo = "";
         this.numberOfTenants = 0;
         return this;
     }
 
-    withTenants(tenants: string[]){
+    withTenants(tenants: string[]= []){
         this.tenants = tenants;
         return this;
     }
 
-    withPhoto(photo: string){
+    withPhoto(photo: string = ""){
         this.photo = photo;
         return this;
     }
 
-    withNumberOfTenants( numberOfTenants: number){
+    withNumberOfTenants( numberOfTenants: number = 0){
         this.numberOfTenants = numberOfTenants;
         return this;
     }
@@ -42,11 +43,11 @@ class LandlordDetilsBuilder{
     }
 
     static from(obj: {tenants?: string[], photo?: string, numberOfTenants?: number}) {
-        const landlordDetailsBuilder = new LandlordDetilsBuilder();
-        obj.tenants && landlordDetailsBuilder.withTenants(obj.tenants);
-        obj.photo && landlordDetailsBuilder.withPhoto(obj.photo);
-        obj.numberOfTenants && landlordDetailsBuilder.withNumberOfTenants(obj.numberOfTenants);
-        return landlordDetailsBuilder.build();
+        return new LandlordDetilsBuilder()
+                            .withTenants(obj.tenants)
+                            .withPhoto(obj.photo)
+                            .withNumberOfTenants(obj.numberOfTenants)
+                            .build();
     }
 }
 

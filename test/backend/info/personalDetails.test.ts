@@ -45,8 +45,18 @@ describe('PersonalDetails: from', () => {
         const personalDetails = PersonalDetailsBuilder.from(userObject);
         expect (personalDetails.firstName).toBe('John');
         expect (personalDetails.lastName).toBe('Doe');
-        expect (personalDetails.email).toBeUndefined();
-        expect (personalDetails.phone).toBeUndefined();
+        expect (personalDetails.email).toBe("");
+        expect (personalDetails.phone).toBe("");
         expect (personalDetails.username).toBe('testUsername');
+    });
+
+    it('should throw an error if username is missing', () => {
+        const userObject = {
+            firstName: 'John',
+            lastName: 'Doe',
+            email: '',
+            username: '',
+        }
+        expect(() => PersonalDetailsBuilder.from(userObject)).toThrow();
     });
 });
