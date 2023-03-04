@@ -3,6 +3,8 @@ This project is for backend that we are implementing for TConnect. We aim to hav
 
 [![Deploy AWS CDK stack and Lambda function](https://github.com/sarveshbhatnagar/tconnect-backend/actions/workflows/lambda-deploy.yml/badge.svg?branch=main)](https://github.com/sarveshbhatnagar/tconnect-backend/actions/workflows/lambda-deploy.yml)
 
+[![Test Lambda function](https://github.com/sarveshbhatnagar/tconnect-backend/actions/workflows/test.yml/badge.svg)](https://github.com/sarveshbhatnagar/tconnect-backend/actions/workflows/test.yml)
+
 The basic structure is as follows:
 
 1. All the code resides in lib/
