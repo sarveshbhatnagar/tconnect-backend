@@ -1,5 +1,5 @@
-import { Rentor } from "../../../../lib/backend/models/characters/Rentor";
-import { RentorService } from "../../../../lib/backend/models/services/RentorService";
+import { Rentor } from "../../../../lib/backend/models/characters/rentor";
+import { RentorService } from "../../../../lib/backend/models/services/rentorService";
 
 describe("RentorService", () => {
     it("should create an instance of RentorService with a valid rentorObject", () => {

@@ -1,6 +1,6 @@
 import { PersonalDetails, PersonalDetailsBuilder } from "../info/personalDetails";
 import { PrivateDetails, PrivateDetailsBuilder } from "../info/privateDetails";
-
+// To update class name.
 interface ICharacter {
     personalDetails: PersonalDetails;
     privateDetails: PrivateDetails;

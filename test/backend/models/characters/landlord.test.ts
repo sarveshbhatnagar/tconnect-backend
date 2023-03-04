@@ -1,4 +1,4 @@
-import { Landlord } from "../../../../lib/backend/models/characters/Landlord";
+import { Landlord } from "../../../../lib/backend/models/characters/landlord";
 
 describe("Landlord", () => {
     it("should have a valid constructor", () => {

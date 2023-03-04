@@ -1,4 +1,4 @@
-import { Rentor } from "../characters/Rentor";
+import { Rentor } from "../characters/rentor";
 
 class RentorService {
     rentor: Rentor;

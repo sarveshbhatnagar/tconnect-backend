@@ -1,5 +1,5 @@
-import { Technician } from "../../../../lib/backend/models/characters/Technician";
-import { TechnicianService } from "../../../../lib/backend/models/services/TechnicianService";
+import { Technician } from "../../../../lib/backend/models/characters/technician";
+import { TechnicianService } from "../../../../lib/backend/models/services/technicianService";
 
 describe("TechnicianService", () => {
     it("should create an instance of LandlordService with a valid rentorObject", () => {
