@@ -1,4 +1,4 @@
-import { Technician } from "../../../../lib/backend/models/characters/Technician";
+import { Technician } from "../../../../lib/backend/models/characters/technician";
 
 describe("Technician", () => {
     it("should have a valid constructor", () => {

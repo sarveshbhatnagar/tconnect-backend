@@ -1,4 +1,4 @@
-import { Landlord } from "../characters/Landlord";
+import { Landlord } from "../characters/landlord";
 
 class LandlordService {
     landlord: Landlord;
