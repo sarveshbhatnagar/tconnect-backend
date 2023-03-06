@@ -6,8 +6,8 @@ class AddressDetails{
     addressLine: string;
     state: string;
 
-    constructor(location: string, apartment: string, addressLine: string, state: string){
-        this.geoHash = location;
+    constructor(geoHash: string, apartment: string, addressLine: string, state: string){
+        this.geoHash = geoHash;
         this.apartment = apartment;
         this.addressLine = addressLine;
         this.state = state;
@@ -28,7 +28,7 @@ class AddressDetailsBuilder{
         return this;
     }
 
-    withLocation(geoHash: string = "testLocation"){
+    withGeoHash(geoHash: string = "testLocation"){
         this.geoHash = geoHash;
         return this;
     }
@@ -53,10 +53,9 @@ class AddressDetailsBuilder{
     }
 
     static from(obj: {geoHash?: string, apartment?: string, addressLine?: string, state?: string}){
-        const addressDetailsBuilder = new AddressDetailsBuilder().withLocation(obj.geoHash).withApartment(obj.apartment).withAddressLine(obj.addressLine).withState(obj.state);
+        return new AddressDetailsBuilder().withGeoHash(obj.geoHash).withApartment(obj.apartment).withAddressLine(obj.addressLine).withState(obj.state).build();
 
-        obj.withLocation && addressDetailsBuilder.withLocation(obj.geoHash);
-        return addressDetailsBuilder.build();
+        
     }
 }
 
