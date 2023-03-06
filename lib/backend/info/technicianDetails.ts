@@ -1,22 +1,22 @@
 enum TechnicianType {
-    Electrician = "Electrician",
-    Plumber = "Plumber",
-    Carpenter = "Carpenter",
-    Painter = "Painter",
-    Mason = "Mason",
+    ELECTRICIAN = "Electrician",
+    PLUMBER = "Plumber",
+    CARPENTER = "Carpenter",
+    PAINTER = "Painter",
+    MASON = "Mason",
     CCTV = "CCTV",
     AC = "AC",
-    Other = "Other"
+    OTHER = "Other"
 }
 
 
 
 class TechnicianDetails{
     worktype: TechnicianType;
-    responseTime?: number;
+    responseTime: number;
     hourlyRate: number;
 
-    constructor( worktype: TechnicianType, hourlyRate: number, responseTime?: number){
+    constructor( worktype: TechnicianType, hourlyRate: number, responseTime: number){
         this.worktype = worktype;
         this.responseTime = responseTime;
         this.hourlyRate = hourlyRate;
@@ -27,24 +27,27 @@ class TechnicianDetails{
 
 class TechnicianDetailsBuilder{
     worktype: TechnicianType;
-    responseTime?: number;
+    responseTime: number;
     hourlyRate: number;
 
     constructor(){
+        this.worktype = TechnicianType.OTHER;
+        this.responseTime = 0;
+        this.hourlyRate = 0;
         return this;
     }
 
-    withWorktype(worktype: TechnicianType){
+    withWorktype(worktype: TechnicianType = TechnicianType.OTHER){
         this.worktype = worktype;
         return this;
     }
 
-    withResponseTime(responseTime?: number){
+    withResponseTime(responseTime: number = 0){
         this.responseTime = responseTime;
         return this;
     }
 
-    withHourlyRate(hourlyRate: number){
+    withHourlyRate(hourlyRate: number = 0){
         this.hourlyRate = hourlyRate;
         return this;
     }
@@ -53,6 +56,18 @@ class TechnicianDetailsBuilder{
         return new TechnicianDetails(this.worktype, this.hourlyRate, this.responseTime);
     }
 
+    static from(obj: {worktype?: TechnicianType, responseTime?: number, hourlyRate?: number}) {
+        const rentorDetailsBuilder = new TechnicianDetailsBuilder().withWorktype(obj.worktype)
+                                        .withHourlyRate(obj.hourlyRate)
+                                        .withResponseTime(obj.responseTime)
+
+        obj.worktype && rentorDetailsBuilder.withWorktype(obj.worktype);
+        return rentorDetailsBuilder.build();
+    }
+
 }
+
+    
+
 
 export { TechnicianDetails, TechnicianDetailsBuilder, TechnicianType}
