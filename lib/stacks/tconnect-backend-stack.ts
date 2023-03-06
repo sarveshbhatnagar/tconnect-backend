@@ -9,7 +9,7 @@ export class LambdaStack extends Stack {
     const lambdaFunction = new Function(this, 'BackendLambdaFunction', {
       runtime: Runtime.NODEJS_14_X,
       handler: 'index.handler',
-      code: Code.fromAsset('lib/backend'),
+      code: Code.fromAsset('./dist/'),
     });
   }
 }
