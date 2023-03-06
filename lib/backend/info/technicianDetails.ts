@@ -57,13 +57,12 @@ class TechnicianDetailsBuilder{
     }
 
     static from(obj: {worktype?: TechnicianType, responseTime?: number, hourlyRate?: number}) {
-        const rentorDetailsBuilder = new TechnicianDetailsBuilder().withWorktype(obj.worktype)
+        return new TechnicianDetailsBuilder().withWorktype(obj.worktype)
                                         .withHourlyRate(obj.hourlyRate)
-                                        .withResponseTime(obj.responseTime)
+                                        .withResponseTime(obj.responseTime).build();
 
-        obj.worktype && rentorDetailsBuilder.withWorktype(obj.worktype);
-        return rentorDetailsBuilder.build();
     }
+
 
 }
 
