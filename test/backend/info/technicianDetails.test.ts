@@ -2,14 +2,14 @@ import { TechnicianDetailsBuilder, TechnicianType } from "../../../lib/backend/i
 
 describe("TechnicianDetails", () => {
     it("should have a valid constructor", () => {
-        const TechnicianDetails = new TechnicianDetailsBuilder()
+        const technicianDetails = new TechnicianDetailsBuilder()
             .withWorktype(TechnicianType.ELECTRICIAN)
             .withResponseTime(500)
             .withHourlyRate(500)
             .build();
-        expect(TechnicianDetails.worktype).toBe("Electrician");
-        expect(TechnicianDetails.responseTime).toBe(500);
-        expect(TechnicianDetails.hourlyRate).toBe(500);
+        expect(technicianDetails.worktype).toBe("Electrician");
+        expect(technicianDetails.responseTime).toBe(500);
+        expect(technicianDetails.hourlyRate).toBe(500);
 
     });
 
