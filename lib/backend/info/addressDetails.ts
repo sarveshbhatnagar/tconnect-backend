@@ -57,6 +57,7 @@ class AddressDetailsBuilder{
 
         obj.withLocation && addressDetailsBuilder.withLocation(obj.geoHash);
         return addressDetailsBuilder.build();
+    }
 }
 
 export { AddressDetails, AddressDetailsBuilder};
