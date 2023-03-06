@@ -13,10 +13,10 @@ enum TechnicianType {
 
 class TechnicianDetails{
     worktype: TechnicianType;
-    responseTime: number;
+    responseTime?: number;
     hourlyRate: number;
 
-    constructor( worktype: TechnicianType, responseTime: number, hourlyRate: number){
+    constructor( worktype: TechnicianType, responseTime?: number, hourlyRate: number){
         this.worktype = worktype;
         this.responseTime = responseTime;
         this.hourlyRate = hourlyRate;
@@ -27,7 +27,7 @@ class TechnicianDetails{
 
 class TechnicianDetailsBuilder{
     worktype: TechnicianType;
-    responseTime: number;
+    responseTime?: number;
     hourlyRate: number;
 
     constructor(){
@@ -39,7 +39,7 @@ class TechnicianDetailsBuilder{
         return this;
     }
 
-    withResponseTime(responseTime: number){
+    withResponseTime(responseTime?: number){
         this.responseTime = responseTime;
         return this;
     }

@@ -25,6 +25,7 @@
     "@types/babel__generator": "^7.6.4",
     "aws-cdk-lib": "2.66.1",
     "constructs": "^10.0.0",
+    "geohash": "^0.0.1",
     "source-map-support": "^0.5.21"
   }
 }
