@@ -1,13 +1,13 @@
 
    
 class AddressDetails{
-    location: string;
+    geoHash: string;
     apartment: string;
     addressLine: string;
     state: string;
 
     constructor(location: string, apartment: string, addressLine: string, state: string){
-        this.location = location;
+        this.geoHash = location;
         this.apartment = apartment;
         this.addressLine = addressLine;
         this.state = state;
@@ -15,39 +15,48 @@ class AddressDetails{
 }
 
 class AddressDetailsBuilder{
-    location: string;
+    geoHash: string;
     apartment: string;
     addressLine: string;
     state: string;
 
     constructor(){
+        this.geoHash = "testLocation";
+        this.apartment = "";
+        this.addressLine = "testAddressLine";
+        this.state = "testState";
         return this;
     }
 
-    withLocation(location: string){
-        this.location = location;
+    withLocation(geoHash: string = "testLocation"){
+        this.geoHash = geoHash;
         return this;
     }
 
-    withApartment(apartment: string){
+    withApartment(apartment: string = ""){
         this.apartment = apartment;
         return this;
     }
 
-    withAddressLine(addressLine: string){
+    withAddressLine(addressLine: string = "testAddressLine"){
         this.addressLine = addressLine;
         return this;
     }
 
-    withState(state: string){
+    withState(state: string = "testState"){
         this.state = state;
         return this;
     }
 
     build(){
-        return new AddressDetails(this.location, this.apartment, this.addressLine, this.state);
+        return new AddressDetails(this.geoHash, this.apartment, this.addressLine, this.state);
     }
 
+    static from(obj: {geoHash?: string, apartment?: string, addressLine?: string, state?: string}){
+        const addressDetailsBuilder = new AddressDetailsBuilder().withLocation(obj.geoHash).withApartment(obj.apartment).withAddressLine(obj.addressLine).withState(obj.state);
+
+        obj.withLocation && addressDetailsBuilder.withLocation(obj.geoHash);
+        return addressDetailsBuilder.build();
 }
 
 export { AddressDetails, AddressDetailsBuilder};
