@@ -11,14 +11,14 @@ describe("TechnicianDetails", () => {
         expect(TechnicianDetails.responseTime).toBe(500);
         expect(TechnicianDetails.hourlyRate).toBe(500);
 
-    })
+    });
 
-    it("should have a valid constructor", () => {
+    it("should work without any paramater", () => {
         const technicianDetails = new TechnicianDetailsBuilder().build();
         
         expect(technicianDetails.worktype).toBe("Other");
         expect(technicianDetails.responseTime).toBe(0);
         expect(technicianDetails.hourlyRate).toBe(0);
 
-    })
+    });
 });
