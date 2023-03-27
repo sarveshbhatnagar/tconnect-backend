@@ -5,7 +5,8 @@
     "tconnect-backend": "bin/tconnect-backend.js"
   },
   "scripts": {
-    "build": "tsc --outDir dist",
+    "move": "rsync -rc lib/backend/ dist/",
+    "build": "cd lib/backend && npm install --production && tsc --outDir ../../dist",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",

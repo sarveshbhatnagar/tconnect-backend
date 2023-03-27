@@ -33,6 +33,9 @@ jobs:
       - name: Build Lambda function
         run: npm run build
 
+      - name: Move node modules to dist
+        run: npm run move
+
       - name: Package Lambda function
         run: npm run package
       
