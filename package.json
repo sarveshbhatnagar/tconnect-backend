@@ -9,10 +9,11 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "package": "cd dist && zip -r ../dist/main.zip *" 
+    "package": "cd dist && zip -r ../dist/main.zip *"
   },
   "devDependencies": {
     "@aws-cdk/assert": "^2.66.1",
+    "@types/async": "^3.2.18",
     "@types/babel__core": "^7.20.0",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.13.0",
