@@ -30,3 +30,11 @@ it("should work without any parameter", () => {
     expect(addressDetails.addressLine).toBe("testAddressLine");
     expect(addressDetails.state).toBe("testState");
 });
+
+it("should work without any parameter", () => {
+    const addressDetails = new AddressDetailsBuilder().build();
+    expect(addressDetails.geoHash).toBe("testLocation");
+    expect(addressDetails.apartment).toBe("");
+    expect(addressDetails.addressLine).toBe("testAddressLine");
+    expect(addressDetails.state).toBe("testState");
+});
