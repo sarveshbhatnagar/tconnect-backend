@@ -1,4 +1,5 @@
 
+   
 class AddressDetails{
     geoHash: string;
     apartment: string;
