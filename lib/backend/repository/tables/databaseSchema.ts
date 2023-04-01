@@ -7,19 +7,19 @@ abstract class DatabaseSchema {
         throw new Error("Method 'getInstance()' must be implemented.");
     }
 
-    static get(){
+    static get(data : any){
         throw new Error("Method 'getData()' must be implemented.");
     }
 
-    static put(){
+    static put(data : any){
         throw new Error("Method 'putData()' must be implemented.");
     }
 
-    static update(){
+    static update(data : any){
         throw new Error("Method 'updateData()' must be implemented.");
     }
 
-    static delete(){
+    static delete(data : any){
         throw new Error("Method 'deleteData()' must be implemented.");
     }
 

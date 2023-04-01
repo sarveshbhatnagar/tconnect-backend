@@ -2,7 +2,7 @@ import * as AWS from "aws-sdk"
 import {DatabaseSchema} from "../tables/databaseSchema";
 
 class AWSProvider implements DatabaseSchema {
-    static dynamoDb: AWS.DynamoDB.DocumentClient;
+    static dynamoDb?: AWS.DynamoDB.DocumentClient;
 
     static setDynamoDb() {
         AWS.config.update({
@@ -19,7 +19,7 @@ class AWSProvider implements DatabaseSchema {
     }
 
     static async get(params: AWS.DynamoDB.DocumentClient.GetItemInput) {
-        return AWSProvider.getInstance().get(params).promise()
+        return AWSProvider.getInstance()?.get(params).promise()
         .then((data) => data.Item)
         .catch((err) => {
             console.log("Error getting data: ", err);
@@ -28,7 +28,7 @@ class AWSProvider implements DatabaseSchema {
     }
 
     static async put(params: AWS.DynamoDB.DocumentClient.PutItemInput) {
-        return AWSProvider.getInstance().put(params).promise()
+        return AWSProvider.getInstance()?.put(params).promise()
         .then((_) => true)
         .catch((err) => {
             console.log("Error putting data: ", err);
@@ -37,7 +37,7 @@ class AWSProvider implements DatabaseSchema {
     }
 
     static async update(params: AWS.DynamoDB.DocumentClient.UpdateItemInput) {
-        return AWSProvider.getInstance().update(params).promise()
+        return AWSProvider.getInstance()?.update(params).promise()
         .then((_) => true)
         .catch((err) => {
             console.log("Error updating data: ", err);
@@ -46,7 +46,7 @@ class AWSProvider implements DatabaseSchema {
     }
 
     static async delete(params: AWS.DynamoDB.DocumentClient.DeleteItemInput) {
-        return AWSProvider.getInstance().delete(params).promise()
+        return AWSProvider.getInstance()?.delete(params).promise()
         .then((_) => true)
         .catch((err) => {
             console.log("Error deleting data: ", err);
