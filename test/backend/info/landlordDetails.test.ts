@@ -6,10 +6,14 @@ describe("LandlordDetils", () => {
         .withTenants(["testTenant1", "testTenant2"])
         .withPhoto("testPhoto")
         .withNumberOfTenants(1)
+        .withAutoForward(true)
+        .withAutoResolve(false)
         .build();
     expect(landlordDetils.tenants).toStrictEqual(["testTenant1", "testTenant2"]);
     expect(landlordDetils.photo).toBe("testPhoto");
     expect(landlordDetils.numberOfTenants).toBe(1);
+    expect(landlordDetils.autoForward).toBe(true);
+    expect(landlordDetils.autoResolve).toBe(false);
     });
 
     it("should work with empty constructor", () => {
@@ -17,6 +21,8 @@ describe("LandlordDetils", () => {
         expect(landlordDetils.tenants).toStrictEqual([]);
         expect(landlordDetils.photo).toBe("");
         expect(landlordDetils.numberOfTenants).toBe(0);
+        expect(landlordDetils.autoForward).toBe(false);
+        expect(landlordDetils.autoResolve).toBe(false);
     });
 });
 
@@ -26,6 +32,8 @@ describe("LandlordDetailsBuilder : from", () => {
         expect(landlordDetils.tenants).toStrictEqual([]);
         expect(landlordDetils.photo).toBe("");
         expect(landlordDetils.numberOfTenants).toBe(0);
+        expect(landlordDetils.autoForward).toBe(false);
+        expect(landlordDetils.autoResolve).toBe(false);
     });
 
     it("should work with one parameter", () => {
@@ -33,6 +41,8 @@ describe("LandlordDetailsBuilder : from", () => {
         expect(landlordDetils.tenants).toStrictEqual(["testTenant1", "testTenant2"]);
         expect(landlordDetils.photo).toBe("");
         expect(landlordDetils.numberOfTenants).toBe(0);
+        expect(landlordDetils.autoForward).toBe(false);
+        expect(landlordDetils.autoResolve).toBe(false);
     });
 
     it("should work with extra parameters", () => {
@@ -41,6 +51,8 @@ describe("LandlordDetailsBuilder : from", () => {
         expect(landlordDetils.tenants).toStrictEqual(["testTenant1", "testTenant2"]);
         expect(landlordDetils.photo).toBe("");
         expect(landlordDetils.numberOfTenants).toBe(0);
+        expect(landlordDetils.autoForward).toBe(false);
+        expect(landlordDetils.autoResolve).toBe(false);
     });
 
 });
